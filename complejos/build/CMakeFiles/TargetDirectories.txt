@@ -1,0 +1,3 @@
+/home/alse/2162311/complejos/build/CMakeFiles/rebuild_cache.dir
+/home/alse/2162311/complejos/build/CMakeFiles/complejos_clase.dir
+/home/alse/2162311/complejos/build/CMakeFiles/edit_cache.dir

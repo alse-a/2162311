@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/alse/2162311/complejos/complejos.cpp
+iostream
+-
+complejo.h
+-
+
+/home/alse/2162311/complejos/main.cpp
+iostream
+-
+complejo.h
+-
+

@@ -1,0 +1,3 @@
+/home/alse/2162311/Fig_geo/fig_geom/build/CMakeFiles/rebuild_cache.dir
+/home/alse/2162311/Fig_geo/fig_geom/build/CMakeFiles/fig_geometricas_her.dir
+/home/alse/2162311/Fig_geo/fig_geom/build/CMakeFiles/edit_cache.dir

@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/complejos_clase.dir/complejos.cpp.o CMakeFiles/complejos_clase.dir/main.cpp.o  -o complejos_clase 
