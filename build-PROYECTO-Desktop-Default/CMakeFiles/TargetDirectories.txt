@@ -1,0 +1,4 @@
+/home/alse/2162311/build-PROYECTO-Desktop-Default/CMakeFiles/rebuild_cache.dir
+/home/alse/2162311/build-PROYECTO-Desktop-Default/CMakeFiles/clima.dir
+/home/alse/2162311/build-PROYECTO-Desktop-Default/CMakeFiles/edit_cache.dir
+/home/alse/2162311/build-PROYECTO-Desktop-Default/CMakeFiles/clima_autogen.dir

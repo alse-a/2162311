@@ -44,7 +44,7 @@ bool DB_remota::conectar_DB()
         return false;
     }else{ return true; }
 }
-int DB_remota::desconectar_DB()
+bool DB_remota::desconectar_DB()
 {
     mysql_free_result( result );
     mysql_close( connection );
