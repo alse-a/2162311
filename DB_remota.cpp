@@ -16,7 +16,7 @@
 #define HOST "186.155.208.171"
 #define USER "alseuser1"
 #define PASSWD "SruC-x2x56cAcSYP40"
-#define DB "alse_test.db"
+#define DB "alse_test"
 
 using namespace std;
 
@@ -25,7 +25,6 @@ DB_remota::DB_remota(MYSQL msql)
 {
     this->connection = NULL;
     this->mysql = msql;
-    result;
     mysql_init(&mysql);
 }
 DB_remota::DB_remota()
@@ -35,7 +34,6 @@ DB_remota::DB_remota()
 bool DB_remota::guardar_dato(Dato d, int h)
 {
     conectar_DB();
-
     stringstream sqlstream;
     int c;
 
@@ -50,7 +48,14 @@ bool DB_remota::guardar_dato(Dato d, int h)
     sqlstream << d.getLatitud() << ", ";
     sqlstream << d.getLongitud() << ", ";
     sqlstream << d.getAltura() << ");";
-    c = mysql_query( connection, sqlstream );
+    c = mysql_query( connection, sqlstream.str().c_str() );
+    if (c==0)
+    {
+        return true;
+    }else{
+        cout << mysql_error(&mysql) << endl;
+        return false;
+    }
 
     desconectar_DB();
     return true;
@@ -66,7 +71,6 @@ bool DB_remota::conectar_DB()
 }
 bool DB_remota::desconectar_DB()
 {
-    mysql_free_result( result );
     mysql_close( connection );
     return true;
 }
@@ -74,11 +78,17 @@ bool DB_remota::create_table()
 {
     string sqlstream;
     int c;
-
     conectar_DB();
-    sqlstream = "CREATE TABLE TBL_Datos (Hora REAL PRIMARY KEY NOT NULL, Temperatura REAL NOT NULL, Humedad INTEGER NOT NULL, Vel_viento REAL NOT NULL, Dir_viento REAL NOT NULL, Latitud REAL NOT NULL, Longitud REAL NOT NULL, Altura REAL NOT NULL)";
+    sqlstream = "CREATE TABLE TBL_Datos (ID REAL PRIMARY KEY NOT NULL, Hora REAL NOT NULL, Temperatura REAL NOT NULL, Humedad INTEGER NOT NULL, Vel_viento REAL NOT NULL, Dir_viento REAL NOT NULL, Latitud REAL NOT NULL, Longitud REAL NOT NULL, Altura REAL NOT NULL)";
     c = mysql_query( connection, sqlstream.c_str() );
 
+    if (c==0)
+    {
+        return true;
+    }else{
+        cout << mysql_error(&mysql) << endl;
+        return false;
+    }
     desconectar_DB();
     return true;
 }

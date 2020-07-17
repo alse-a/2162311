@@ -133,7 +133,7 @@ void Estacion_meteo::alarma_24_horas()
          promedio_hora.setLongitud(lo/NUM_MUESTRAS_H);
          promedio_hora.setTemperatura(t/NUM_MUESTRAS_H);
          promedio_hora.setVeloviento(v/NUM_MUESTRAS_H);
-
+         db_remota->create_table();
          promedio_dia.setAltura(promedio_hora.getAltura()/INTERVAL_DIA);
          promedio_dia.setDirviento(promedio_hora.getDirviento()/INTERVAL_DIA);
          promedio_dia.setLatitud(promedio_hora.getLatitud()/INTERVAL_DIA);
@@ -151,7 +151,6 @@ void Estacion_meteo::alarma_24_horas()
 
      //timer1->start();
      //timer2->start();
-
 
 }
 

@@ -27,8 +27,6 @@ class DB_remota{
     private:
 
         MYSQL *connection, mysql;
-        MYSQL_RES *result;
-
 };
 
 #endif //_DB_REMOTA_H
