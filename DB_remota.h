@@ -17,7 +17,6 @@ class DB_remota{
 
     public:
 
-        DB_remota(MYSQL msql);
         DB_remota();
         bool conectar_DB();
         bool desconectar_DB();
@@ -27,6 +26,7 @@ class DB_remota{
     private:
 
         MYSQL *connection, mysql;
+
 };
 
 #endif //_DB_REMOTA_H

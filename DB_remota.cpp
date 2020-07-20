@@ -21,16 +21,11 @@
 using namespace std;
 
 
-DB_remota::DB_remota(MYSQL msql)
-{
-    this->connection = NULL;
-    this->mysql = msql;
-    mysql_init(&mysql);
-}
 DB_remota::DB_remota()
 {
-
+    this->connection = NULL;
 }
+
 bool DB_remota::guardar_dato(Dato d, int h)
 {
     conectar_DB();
@@ -47,8 +42,9 @@ bool DB_remota::guardar_dato(Dato d, int h)
     sqlstream << d.getDirviento() << ", ";
     sqlstream << d.getLatitud() << ", ";
     sqlstream << d.getLongitud() << ", ";
-    sqlstream << d.getAltura() << ");";
+    sqlstream << d.getAltura() << ")";
     c = mysql_query( connection, sqlstream.str().c_str() );
+
     if (c==0)
     {
         return true;
@@ -58,10 +54,11 @@ bool DB_remota::guardar_dato(Dato d, int h)
     }
 
     desconectar_DB();
-    return true;
+      return true;
 }
 bool DB_remota::conectar_DB()
 {
+    mysql_init(&mysql);
     connection = mysql_real_connect(&mysql,HOST,USER,PASSWD,DB,51000,0,0);
 
     if (connection == NULL) {
@@ -69,6 +66,7 @@ bool DB_remota::conectar_DB()
         return false;
     }else{ return true; }
 }
+
 bool DB_remota::desconectar_DB()
 {
     mysql_close( connection );
@@ -79,7 +77,7 @@ bool DB_remota::create_table()
     string sqlstream;
     int c;
     conectar_DB();
-    sqlstream = "CREATE TABLE TBL_Datos (ID REAL PRIMARY KEY NOT NULL, Hora REAL NOT NULL, Temperatura REAL NOT NULL, Humedad INTEGER NOT NULL, Vel_viento REAL NOT NULL, Dir_viento REAL NOT NULL, Latitud REAL NOT NULL, Longitud REAL NOT NULL, Altura REAL NOT NULL)";
+    sqlstream = "CREATE TABLE TBL_Datos (ID INTEGER PRIMARY KEY NOT NULL, Hora REAL NOT NULL, Temperatura REAL NOT NULL, Humedad INTEGER NOT NULL, Vel_viento REAL NOT NULL, Dir_viento REAL NOT NULL, Latitud REAL NOT NULL, Longitud REAL NOT NULL, Altura REAL NOT NULL)";
     c = mysql_query( connection, sqlstream.c_str() );
 
     if (c==0)
